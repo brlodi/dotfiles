@@ -1,3 +1,7 @@
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+
 # Easier navigation: .., -
 alias ..="cd .."
 alias -- -="cd -"
@@ -34,3 +38,7 @@ alias la="ls -laF ${colorflag}"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume 7'"
