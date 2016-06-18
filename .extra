@@ -1,0 +1,7 @@
+# Allow hacky module import for university class
+export PYTHONPATH=$PYTHONPATH:"/Users/brlodi/LING 1330/shared"
+
+# Make bash-completion from Homebrew work
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
