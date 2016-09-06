@@ -1,6 +1,6 @@
 # .extras is for semi-private (don't put anything security
 # sensitive there!) and machine-specific/temporary tweaks
-.extras
+.extra
 
 # Compiled files
 *.pyc
