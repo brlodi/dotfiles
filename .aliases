@@ -17,6 +17,10 @@ alias h="history"
 alias j="jobs"
 
 
+# SSH timesavers
+alias ssh-fp="ssh -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no" # force password auth instead of pubkey
+
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
