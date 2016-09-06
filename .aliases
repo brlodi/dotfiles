@@ -45,6 +45,11 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
+
+
+# self-updating is nice
+alias update-dotfiles="curl -sL https://github.com/brlodi/dotfiles/archive/master.zip -o temp.zip;  unzip -ju temp.zip "dotfiles-master/.*"; rm temp.zip"
