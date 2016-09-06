@@ -1,4 +1,8 @@
-# Compiled Python files
+# .extras is for semi-private (don't put anything security
+# sensitive there!) and machine-specific/temporary tweaks
+.extras
+
+# Compiled files
 *.pyc
 
 # Folder view configuration files
