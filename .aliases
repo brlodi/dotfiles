@@ -51,5 +51,5 @@ alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
 
 
-# self-updating is nice
+# self-updating is nice, even on systems where you don't want to clone the repo
 alias update-dotfiles="curl -sL https://github.com/brlodi/dotfiles/archive/master.zip -o temp.zip;  unzip -ju temp.zip "dotfiles-master/.*"; rm temp.zip"
