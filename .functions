@@ -1,3 +1,7 @@
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
 # Safely move a file, leaving a symlink in its place. Requires explicit
 # file naming. Ideally this can be made more robust
 mvln() { cp "$1" "$2" && ln -sf "$2" "$1"; }
