@@ -5,3 +5,5 @@
 [user]
 	name = Benjamin Lodi
 	email = brlodi@gmail.com
+[color]
+	ui = true
