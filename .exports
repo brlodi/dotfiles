@@ -1,2 +1,5 @@
 export HISTCONTROL=ignoredups
 
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
+
