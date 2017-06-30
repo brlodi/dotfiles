@@ -7,3 +7,6 @@
 	email = brlodi@gmail.com
 [color]
 	ui = true
+[core]
+	autocrlf = input
+	editor = /usr/local/bin/vim
