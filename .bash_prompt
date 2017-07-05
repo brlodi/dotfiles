@@ -14,6 +14,7 @@ sbp_dir_color=2 # GREEN
 sbp_git_status_color=3 # YELLOW
 sbp_git_progress_color=1 # RED
 sbp_neutral_dark=11 # "BRIGHT YELLOW" (actually a dark grey-ish in base16 color schemes)
+					# WARNING: this gets overridden for ANSI below, CHANGE IT THERE TOO!
 sbp_neutral_light=7 # WHITE
 
 # The glyph to use for connecting prompt segments
@@ -33,6 +34,7 @@ if tput setaf 1 &> /dev/null; then
   # Save common color actions
   sbp_bold="$(tput bold)"
   sbp_reset="$(tput sgr0)"
+  sbp_default_bg="$(tput setab 256)"
   sbp_invert="$(tput setaf 256)" # "Transparent" text, shows terminal background color
 
   # These are the colors for the main text boxes of the prompt, not including the arrows
@@ -52,22 +54,36 @@ if tput setaf 1 &> /dev/null; then
   sbp_git_cn="$(tput setaf $sbp_neutral_dark)"
 
 else
-# Otherwise, use ANSI escape sequences for coloring
+  # Otherwise, use ANSI escape sequences for coloring
   # If you would like to customize your colors, use
   # DEV: 30-39 lines up 0-9 from `tput`
   # for i in $(seq 0 109); do
   #   echo -n -e "\033[1;${i}mText$(tput sgr0) "
   #   echo "\033[1;${i}m"
   # done
-  # TODO: update this to match `tput` variables from above
+
+  sbp_bold="\033[1m"
   sbp_reset="\033[m"
-  sbp_user_color="\033[1;34m" # BLUE
-  sbp_preposition_color="\033[1;37m" # WHITE
-  sbp_device_color="\033[1;36m" # CYAN
-  sbp_dir_color="\033[1;32m" # GREEN
-  sbp_git_status_color="\033[1;33m" # YELLOW
-  sbp_git_progress_color="\033[1;31m" # RED
-  sbp_symbol_color="" # NORMAL
+  sbp_default_bg="\033[49m"
+  sbp_invert="\033[$(expr 30 + 0)m" # Have to settle for black fg, there's no "transparent"
+
+  sbp_user_bg="\033[$(expr 40 + $sbp_user_color)m"
+  sbp_device_bg="\033[$(expr 40 + $sbp_device_color)m"
+  sbp_dir_bg="\033[$(expr 40 + $sbp_dir_color)m"
+  # WARNING: this is manually overridden. If you change $sbp_neutral_dark above, change this too
+  sbp_git_bg="\033[40m" # Best we can do is a black BG color
+  sbp_user_fg="$sbp_invert"
+  sbp_device_fg="$sbp_invert"
+  sbp_dir_fg="$sbp_invert"
+  sbp_git_status_fg="\033[$(expr 30 + $sbp_git_status_color)m"
+  sbp_git_progress_fg="\033[$(expr 30 + $sbp_git_progress_color)m"
+  sbp_symbol_fg="\033[$(expr 30 + $sbp_neutral_light)m"
+  sbp_user_cn="\033[$(expr 30 + $sbp_user_color)m"
+  sbp_device_cn="\033[$(expr 30 + $sbp_device_color)m"
+  sbp_dir_cn="\033[$(expr 30 + $sbp_dir_color)m"
+  # WARNING: this is manually overridden. If you change $sbp_neutral_dark above, change this too
+  sbp_git_cn="\033[30m"
+
 fi
 
 # Define the actual prompt styles
@@ -76,7 +92,7 @@ sbp_user_bar="$sbp_user_bg$sbp_connector$sbp_user_fg \u $sbp_user_cn"
 sbp_device_bar="$sbp_device_bg$sbp_connector$sbp_device_fg \h $sbp_device_cn"
 sbp_dir_bar="$sbp_dir_bg$sbp_connector$sbp_dir_fg \w $sbp_dir_cn"
 sbp_git_bar="$sbp_git_bg$sbp_connector$sbp_git_status_fg \$(sbp_get_git_info)$sbp_git_progress_fg\$(sbp_get_git_progress) $sbp_git_cn"
-sbp_end_cap="$(tput setab 256)$sbp_connector$sbp_reset"
+sbp_end_cap="$sbp_default_bg$sbp_connector$sbp_reset"
 
 # Define the default prompt terminator character '$'
 if [[ "$UID" == 0 ]]; then
