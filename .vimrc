@@ -58,6 +58,8 @@ set number " turn on absolute line numbering
 set tabstop=4
 set shiftwidth=0 " make shiftwidth automatically use the tabstop setting
 syntax on
+" Automatically enter Insert mode when editing git commit messages
+autocmd FileType gitcommit exec 'au VimEnter * startinsert'
 " Enable javacomplete2 plugin
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " Get Airline to use Powerline fonts

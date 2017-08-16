@@ -1,0 +1,24 @@
+{
+	"colors": {
+		"base16:base00": 0,
+		"base16:base01": 10,
+		"base16:base02": 11,
+		"base16:base03": 8,
+		"base16:base04": 12,
+		"base16:base05": 7,
+		"base16:base06": 13,
+		"base16:base07": 15,
+		
+		"base16:black": 0,
+		"base16:red": 1,
+		"base16:green": 2,
+		"base16:yellow": 3,
+		"base16:blue": 4,
+		"base16:magenta": 5,
+		"base16:cyan": 6,
+		"base16:white": 7,
+		
+		"base16:orange": 9,		
+		"base16:brown": 14
+	}
+}
