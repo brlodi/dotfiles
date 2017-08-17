@@ -12,6 +12,12 @@
           },
           {
             "function": "powerline.segments.shell.cwd"
+          },
+          {
+            "function": "powerline.segments.common.vcs.branch",
+            "args": {
+              "status_colors": true
+            }
           }
         ]
       }

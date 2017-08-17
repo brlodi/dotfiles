@@ -13,7 +13,7 @@
 		"user":                       { "fg": "base16:black", "bg": "base16:blue", "attrs": ["bold"] },
 		"virtualenv":                 { "fg": "base16:base00", "bg": "base16:green", "attrs": [] },
 		"branch":                     { "fg": "base16:yellow", "bg": "base16:base02", "attrs": [] },
-		"branch_dirty":               { "fg": "base16:yellow", "bg": "base16:base02", "attrs": [] },
+		"branch_dirty":               { "fg": "base16:base02", "bg": "base16:orange", "attrs": [] },
 		"branch_clean":               { "fg": "base16:yellow", "bg": "base16:base02", "attrs": [] },
 		"stash":                      "branch_dirty",
 		"email_alert_gradient":       { "fg": "base16:base00", "bg": "yellow_orange_red", "attrs": [] },
