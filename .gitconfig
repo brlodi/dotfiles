@@ -9,4 +9,4 @@
 	ui = true
 [core]
 	autocrlf = input
-	editor = /usr/local/bin/vim
+	editor = vim +startinsert

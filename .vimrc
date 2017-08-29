@@ -1,67 +1,76 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" ----------------------------------------
+"  vim-plug
+" ----------------------------------------
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+"  Lazily install vim-plug if it doesn't exist
+if empty(glob("~/.vim/autoload/plug.vim"))
+  silent! execute '!curl --create-dirs -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * silent! PlugInstall
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"  List Plugins
+silent! if plug#begin()
+  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-abolish'
+  Plug 'chriskempson/base16-vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-"Plugin 'ascenator/L9', {'name': 'newL9'}
-Plugin 'chriskempson/base16-vim'
-Plugin 'artur-shaik/vim-javacomplete2'
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'thinca/vim-quickrun'
-Plugin 'wesQ3/vim-windowswap'
+  call plug#end()
+endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-colorscheme base16-default-dark
-set backspace=indent,eol,start " make backspace work like most other apps
-set mouse=a " the mouse works fine, use it
-set wildmode=longest,list,full
-set laststatus=2
-set number " turn on absolute line numbering
-set tabstop=4
-set shiftwidth=0 " make shiftwidth automatically use the tabstop setting
-syntax on
-" Automatically enter Insert mode when editing git commit messages
-autocmd FileType gitcommit exec 'au VimEnter * startinsert'
-" Enable javacomplete2 plugin
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-" Get Airline to use Powerline fonts
-let g:airline_powerline_fonts = 1
+" ---------------------------------------
+"  user configuration
+" ---------------------------------------
 
+" Force vim-sensible plugin to load early so we can override it
+runtime! plugin/sensible.vim
+
+" Set leader to space, indirectly (this makes '\' still show up)
+map <Space> <Leader>
+
+" enable the mouse, because why not use it if it exists
+set mouse=a
+
+" utf-8—like a sane person
+set encoding=utf-8
+
+" set tabs to width 2 by default
+set tabstop=2
+set shiftwidth=2
+
+" indentation
+set autoindent
+set shiftround
+set expandtab
+
+" only keep one space after sentences
+set nojoinspaces
+
+" vertically split to the right
+set splitright
+
+" give vim a good memory
+set history=500
+
+" wildmode similar to bash
+set wildmode=longest,list
+
+" allow block selection to go outside of the actual text
+set virtualedit=block
+
+" remove the standard Vim :intro message
+set shortmess+=I
+
+" highlight matching brackets
+set showmatch
+
+" set the colorscheme
+colorscheme base16-eighties
+let g:airline_theme='base16_eighties'
+
+" Airline settings
+set noshowmode " avoid duplicate mode indicator
+let g:airline_powerline_fonts=1
