@@ -1,0 +1,1 @@
+/Users/brlodi/.config/fisherman/imgcat/imgcat.fish
