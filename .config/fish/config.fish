@@ -8,8 +8,8 @@ set -xg SHELL fish
 ###############################################################################
 
 # Source the iTerm 2 shell integration script if it exists
-if test -e {$HOME}/.iterm2_shell_integration.fish
-  source {$HOME}/.iterm2_shell_integration.fish
+if test -e {$HOME}/.config/iterm2/.iterm2_shell_integration.fish
+  source {$HOME}/.config/iterm2/.iterm2_shell_integration.fish
 end
 
 
