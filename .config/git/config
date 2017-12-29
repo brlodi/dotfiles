@@ -1,0 +1,13 @@
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[user]
+  name = Benjamin Lodi
+  email = brlodi@gmail.com
+[color]
+  ui = true
+[core]
+  autocrlf = input
+  editor = vim +startinsert
+
