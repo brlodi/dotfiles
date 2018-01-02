@@ -1,1 +1,0 @@
-/Users/brlodi/.config/fisherman/nodenv/functions/nodenv.fish
