@@ -1,6 +1,7 @@
-tap "caskroom/cask"
-tap "homebrew/bundle"
 tap "homebrew/core"
+tap "homebrew/bundle"
+tap "caskroom/fonts"
+tap "caskroom/cask"
 brew "fish"
 brew "git"
 brew "mas"
@@ -11,6 +12,8 @@ brew "vim", args: ["with-luajit", "with-python3"]
 brew "vimpager"
 brew "yadm"
 cask "iterm2"
+cask "caskroom/fonts/font-sourcecodepro-nerd-font"
+cask "caskroom/fonts/font-sourcecodepro-nerd-font-mono"
 mas "1Password", id: 443987910
 mas "ForkLift", id: 412448059
 mas "Keynote", id: 409183694
