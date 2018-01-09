@@ -11,11 +11,15 @@ brew "thefuck"
 brew "vim", args: ["with-luajit", "with-python3"]
 brew "vimpager"
 brew "yadm"
+cask "bettertouchtool"
 cask "iterm2"
+cask "slack"
+cask "visual-studio-code"
 cask "caskroom/fonts/font-sourcecodepro-nerd-font"
 cask "caskroom/fonts/font-sourcecodepro-nerd-font-mono"
 mas "1Password", id: 443987910
 mas "ForkLift", id: 412448059
+mas "iStudiez Pro", id: 402989379
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
