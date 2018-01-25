@@ -2,13 +2,13 @@
 "  vim-plug
 " ----------------------------------------
 
-"  Lazily install vim-plug if it doesn't exist
+"  Lazily install vim-plug if it isn't currently installed
 if empty(glob("~/.vim/autoload/plug.vim"))
   silent! execute '!curl --create-dirs -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * silent! PlugInstall
 endif
 
-"  List Plugins
+"  List plugins to be installed/managed/loaded by vim-plug
 silent! if plug#begin()
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-repeat'
@@ -18,60 +18,68 @@ silent! if plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'dag/vim-fish'
-
   call plug#end()
 endif
 
 " ---------------------------------------
-"  user configuration
+"  personal configuration
 " ---------------------------------------
 
-" Force vim-sensible plugin to load early so we can override it
+" Force vim-sensible plugin to load early so we can override settings from it
+" (it would normally be loaded after this whole file is processed)
 runtime! plugin/sensible.vim
 
-" Set leader to space, indirectly (this makes '\' still show up)
+" Set leader to space, in a special round-about way (this makes '\' still show up)
 map <Space> <Leader>
 
-" enable the mouse, because why not use it if it exists
+" Enable the mouse, because why not use it if it exists
 set mouse=a
 
-" utf-8—like a sane person
+" Use UTF-8 like a sane person
 set encoding=utf-8
 
-" set tabs to width 2 by default
+" Indentation settings
+"   tabstop and shiftwidth change tab width and 'increase/decrease indent'
+"     action adjustment separately
+"   autoindent keeps indent level on new line unless syntax says otherwise
+"   shiftround rounds indent to nearest multiple of shiftwidth so you don't
+"     get off-by-one indents if you type a space and *then* hit tab
+"   expandtab makes tab insert spaces instead of hard tabs
 set tabstop=2
 set shiftwidth=2
-
-" indentation
 set autoindent
 set shiftround
 set expandtab
 
-" only keep one space after sentences
+" When joining lines, Vim inserts two spaces between them in the new line
+" This is stupid. Turn it off.
 set nojoinspaces
 
-" vertically split to the right
+" When splitting a view, place new split down/right instead of default up/left
+set splitbelow
 set splitright
 
-" give vim a good memory
+" Increase command history significantly
 set history=500
 
-" wildmode similar to bash
+" Adjust auto-completion mode (wildmode) to behave similar to Bash
 set wildmode=longest,list
 
-" allow block selection to go outside of the actual text
+" Allow block selection to go outside of the actual text
 set virtualedit=block
 
-" remove the standard Vim :intro message
+" Remove the standard Vim welcome message
 set shortmess+=I
 
-" highlight matching brackets
+" Highlight matching brackets
 set showmatch
 
-" set the colorscheme
+" Set the colorscheme
 colorscheme base16-eighties
 let g:airline_theme='base16_eighties'
 
-" Airline settings
-set noshowmode " avoid duplicate mode indicator
+" Airline (bottom status/info bar) settings
+"   noshowmode turns off Vim's native mode indicator since Airline includes it
+"   Turn on Powerline font support for pretty arrows, icons, etc.
+set noshowmode
 let g:airline_powerline_fonts=1
