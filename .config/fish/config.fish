@@ -20,7 +20,7 @@ end
 # Turn off path name truncation (by default shows only first letter)
 set -U fish_prompt_pwd_dir_length 0
 
-# Set terminal colors using Base16-Shell, and also export the Base16 colors as
+# Set terminal colors using base16-shell, and also export the Base16 colors as
 # hex codes for BobTheFish to use below
 base16_set_theme eighties
 
