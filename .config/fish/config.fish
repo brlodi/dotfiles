@@ -2,6 +2,8 @@
 # but we're running fish so it should be 'fish'
 set -xg SHELL fish
 
+# TEMPORARY - avoid bug in current fisherman thefuck plugin
+thefuck -a | source
 
 ###############################################################################
 #####                              General                                #####
