@@ -38,6 +38,11 @@ set mouse=a
 " Use UTF-8 like a sane person
 set encoding=utf-8
 
+" Line number settings
+" Display absolute line number on current line, relative numbers elsewhere
+set number
+set relativenumber
+
 " Indentation settings
 "   tabstop and shiftwidth change tab width and 'increase/decrease indent'
 "     action adjustment separately
@@ -75,8 +80,10 @@ set shortmess+=I
 set showmatch
 
 " Set the colorscheme
-colorscheme base16-eighties
-let g:airline_theme='base16_eighties'
+if filereadable(expand("~/.vim_colors"))
+  let base16colorspace=256
+  source ~/.vim_colors
+endif
 
 " Airline (bottom status/info bar) settings
 "   noshowmode turns off Vim's native mode indicator since Airline includes it
