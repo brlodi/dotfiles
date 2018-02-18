@@ -22,6 +22,10 @@ end
 # Turn off path name truncation (by default shows only first letter)
 set -U fish_prompt_pwd_dir_length 0
 
+# Set colors for ls and related commands (for BSD ls and GNU ls, respectively)
+set -x LSCOLORS ExfxcxdxbxagadabafHeBe
+set -x LS_COLORS "di=1;34:ln=35:so=32:pi=33:ex=31:bd=30;46:cd=30;43:su=30;41:sg=30;45:tw=1;37;44:ow=1;31;44"
+
 # Set terminal colors using base16-shell, and also export the Base16 colors as
 # hex codes for BobTheFish to use below
 base16_set_theme eighties
