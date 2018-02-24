@@ -9,8 +9,8 @@ command -v fish >/dev/null 2>&1 && exec fish
 # If we didn't make it into fish, do some basic bash config instead
 
 # Source the iTerm 2 shell integration script if it exists
-if [[ -e ${$HOME}/.config/iterm2/.iterm2_shell_integration.bash ]]; then
-  source ${$HOME}/.config/iterm2/.iterm2_shell_integration.bash
+if [[ -e ${HOME}/.config/iterm2/.iterm2_shell_integration.bash ]]; then
+  source ${HOME}/.config/iterm2/.iterm2_shell_integration.bash
 fi
 
 # Set color theme
