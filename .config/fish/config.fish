@@ -24,44 +24,9 @@ set -U fish_prompt_pwd_dir_length 0
 set -x LSCOLORS ExfxcxdxbxagadabafHeBe
 set -x LS_COLORS "di=1;34:ln=35:so=32:pi=33:ex=31:bd=30;46:cd=30;43:su=30;41:sg=30;45:tw=1;37;44:ow=1;31;44"
 
-# Set terminal colors using base16-shell, and also export the Base16 colors as
-# hex codes for BobTheFish to use below
-base16_set_theme eighties
-
-
-# ----------------------------- BobTheFish theme ---------------------------- #
-
+# Set options for the BobTheFish theme
 set -g theme_nerd_fonts yes
 set -g default_user brlodi
 set -g theme_display_vagrant yes
 set -g theme_show_exit_status yes
-
-set -g theme_color_scheme user
-
-set -g __color_initial_segment_exit  $__theme_base00 $__theme_base08 --bold
-set -g __color_initial_segment_su    $__theme_base00 $__theme_base0C --bold
-set -g __color_initial_segment_jobs  $__theme_base00 $__theme_base0D --bold
-
-set -g __color_username              $__theme_base02 $__theme_base0B
-set -g __color_hostname              $__theme_base02 $__theme_base0C --bold
-
-set -g __color_path                  $__theme_base01 $__theme_base05
-set -g __color_path_basename         $__theme_base01 $__theme_base05 --bold
-set -g __color_path_nowrite          $__theme_base01 $__theme_base05
-set -g __color_path_nowrite_basename $__theme_base01 $__theme_base08 --bold
-
-set -g __color_repo                  $__theme_base02 $__theme_base0F
-set -g __color_repo_work_tree        $__theme_base06 $__theme_base08 --bold
-set -g __color_repo_dirty            $__theme_base02 $__theme_base09
-set -g __color_repo_staged           $__theme_base02 $__theme_base09
-
-set -g __color_vi_mode_default       $__theme_base0B $__theme_base00 --bold
-set -g __color_vi_mode_insert        $__theme_base0D $__theme_base00 --bold
-set -g __color_vi_mode_visual        $__theme_base0E $__theme_base00 --bold
-
-set -g __color_vagrant               $__theme_base02 $__theme_base0A --bold
-
-set -g __color_rvm                   $__theme_base08 $__theme_base00 --bold
-set -g __color_virtualfish           $__theme_base0C $__theme_base00 --bold
-set -g __color_virtualgo             $__theme_base0C $__theme_base00 --bold
 
