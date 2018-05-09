@@ -12,6 +12,14 @@ if test -e {$HOME}/.config/iterm2/.iterm2_shell_integration.fish
   source {$HOME}/.config/iterm2/.iterm2_shell_integration.fish
 end
 
+# Prep asdf version manager
+if test -d {$HOME}/.asdf
+  source {$HOME}/.asdf/asdf.fish
+else
+  echo -e "WARNING: asdf is not installed. You need to run"
+  echo -e "\n    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.3\n"
+end
+
 
 ###############################################################################
 #####                               Visual                                #####
